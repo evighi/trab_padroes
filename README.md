@@ -81,6 +81,7 @@ Legibilidade: A construção do objeto é intuitiva e fácil de entender.
 Reutilização: O processo de construção pode ser reaproveitado para diferentes configurações.
 
 *Padrão Factory Method*
+
 O Factory Method é um padrão criacional que fornece uma interface para criar objetos em uma superclasse, permitindo que as subclasses alterem o tipo de objetos que serão criados.
 
 Este padrão promove o Princípio Aberto/Fechado, permitindo a extensão da lógica de criação sem modificar o código existente.
@@ -148,6 +149,36 @@ Extensibilidade: Novos tipos de veículos podem ser adicionados sem modificar o 
 Princípio Aberto/Fechado: A lógica de criação está encapsulada em classes independentes.
 
 Reutilização: Cada classe de fábrica pode ser reutilizada em diferentes contextos.
+
+✅ Pontos Fortes Builder:
+
+Flexibilidade na construção: É ideal para criar objetos complexos com muitas opções ou passos de configuração, pois permite personalizar partes específicas do objeto.
+
+Separação de construção e representação: O código de construção não precisa conhecer os detalhes internos do objeto, promovendo baixo acoplamento.
+
+Leitura intuitiva: O uso de métodos encadeados (.withX()) ou etapas nomeadas melhora a legibilidade do código.
+
+Facilidade em criar variações: É fácil criar diferentes representações do mesmo objeto, utilizando diferentes implementações do Builder.
+
+❌ Pontos Fracos Builder:
+
+Complexidade adicional: Pode ser excessivo para objetos simples, aumentando a complexidade sem necessidade.
+Manutenção de código: Adicionar novos atributos ao objeto pode exigir alterações em várias partes do código (no Builder, na classe do objeto e em testes).
+Possível sobrecarga de memória: Dependendo da implementação, objetos intermediários podem ocupar memória adicional.
+2. Factory Method
+O padrão Factory Method define uma interface para criar objetos, mas delega a criação para subclasses ou classes específicas.
+
+✅ Pontos Fortes Factory Method:
+
+Redução de acoplamento: O cliente não precisa conhecer a classe exata do objeto que está sendo criado, promovendo maior flexibilidade para mudanças futuras.
+Facilidade para extensão: É fácil adicionar novas subclasses ou variações de objetos sem alterar o código existente.
+Centralização da lógica de criação: Simplifica a manutenção ao encapsular a lógica de criação em um único lugar.
+
+❌ Pontos Fracos Factory Method:
+
+Aumento da complexidade de classes: Introduz subclasses para cada tipo de objeto, o que pode levar a um número elevado de classes em projetos grandes.
+Dificuldade de rastreamento: Em projetos complexos, rastrear qual implementação está sendo utilizada pode ser desafiador.
+Overhead inicial: Para situações onde um objeto simples poderia ser criado diretamente, o uso do padrão pode ser uma sobrecarga desnecessária.
 
 *Conclusão*
 

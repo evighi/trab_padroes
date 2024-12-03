@@ -1,11 +1,10 @@
-class House {
-    constructor(
-      public windows: number,
-      public doors: number,
-      public hasGarage: boolean
-    ) {}
-  }
-  
-  const house = new House(4, 1, false);
-  console.log("Without Builder:", house); 
-  
+class Order {
+  constructor(
+    public appetizer: string,
+    public mainCourse: string,
+    public dessert: string,
+    public drink: string
+  ) {}
+}
+
+const order = new Order('Salada', 'Filé', 'Pudim', 'Refrigerante');

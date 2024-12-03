@@ -1,29 +1,30 @@
-abstract class FabricaDeCarro {
-    abstract criarCarro(): Carro;
+abstract class Vehicle {
+  constructor(public name: string) {}
+}
+
+class Car extends Vehicle {}
+class Motorcycle extends Vehicle {}
+
+abstract class VehicleFactory {
+  abstract createVehicle(name: string): Vehicle;
+}
+
+class CarFactory extends VehicleFactory {
+  createVehicle(name: string): Vehicle {
+    return new Car(name);
   }
-  
-  class FabricaDeSedan extends FabricaDeCarro {
-    criarCarro(): Carro {
-      return new Carro("Sedan", "V6");
-    }
+}
+
+class MotorcycleFactory extends VehicleFactory {
+  createVehicle(name: string): Vehicle {
+    return new Motorcycle(name);
   }
-  
-  class FabricaDeSUV extends FabricaDeCarro {
-    criarCarro(): Carro {
-      return new Carro("SUV", "V8");
-    }
-  }
-  
-  class Carro {
-    constructor(public modelo: string, public motor: string) {}
-  }
-  
-  const fabricaDeSedan = new FabricaDeSedan();
-  const fabricaDeSUV = new FabricaDeSUV();
-  
-  const sedan = fabricaDeSedan.criarCarro();
-  const suv = fabricaDeSUV.criarCarro();
-  
-  console.log("Com Factory Method - Sedan:", sedan); 
-  console.log("Com Factory Method - SUV:", suv);     
+}
+
+const carFactory = new CarFactory();
+const motorcycleFactory = new MotorcycleFactory();
+
+const car = carFactory.createVehicle('Car A');
+const motorcycle = motorcycleFactory.createVehicle('Motorcycle B');
+ 
   

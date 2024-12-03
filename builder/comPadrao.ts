@@ -1,41 +1,45 @@
-class ConstrutorDeCasa {
-    private janelas = 0;
-    private portas = 0;
-    private temGaragem = false;
-  
-    definirJanelas(janelas: number): this {
-      this.janelas = janelas;
-      return this;
-    }
-  
-    definirPortas(portas: number): this {
-      this.portas = portas;
-      return this;
-    }
-  
-    definirGaragem(temGaragem: boolean): this {
-      this.temGaragem = temGaragem;
-      return this;
-    }
-  
-    construir(): Casa {
-      return new Casa(this.janelas, this.portas, this.temGaragem);
-    }
+class Order {
+  public appetizer?: string;
+  public mainCourse?: string;
+  public dessert?: string;
+  public drink?: string;
+}
+
+class OrderBuilder {
+  private order: Order;
+
+  constructor() {
+    this.order = new Order();
   }
-  
-  class Casa {
-    constructor(
-      public janelas: number,
-      public portas: number,
-      public temGaragem: boolean
-    ) {}
+
+  setAppetizer(appetizer: string): OrderBuilder {
+    this.order.appetizer = appetizer;
+    return this;
   }
-  
-  const casaLuxuosa = new ConstrutorDeCasa()
-    .definirJanelas(10)
-    .definirPortas(5)
-    .definirGaragem(true)
-    .construir();
-  
-  console.log("Com Builder:", casaLuxuosa); 
-  
+
+  setMainCourse(mainCourse: string): OrderBuilder {
+    this.order.mainCourse = mainCourse;
+    return this;
+  }
+
+  setDessert(dessert: string): OrderBuilder {
+    this.order.dessert = dessert;
+    return this;
+  }
+
+  setDrink(drink: string): OrderBuilder {
+    this.order.drink = drink;
+    return this;
+  }
+
+  build(): Order {
+    return this.order;
+  }
+}
+
+const order = new OrderBuilder()
+  .setAppetizer('Salada')
+  .setMainCourse('Filé')
+  .setDessert('Pudim')
+  .setDrink('Refrigerante')
+  .build();

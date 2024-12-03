@@ -165,8 +165,6 @@ Facilidade em criar variações: É fácil criar diferentes representações do 
 Complexidade adicional: Pode ser excessivo para objetos simples, aumentando a complexidade sem necessidade.
 Manutenção de código: Adicionar novos atributos ao objeto pode exigir alterações em várias partes do código (no Builder, na classe do objeto e em testes).
 Possível sobrecarga de memória: Dependendo da implementação, objetos intermediários podem ocupar memória adicional.
-2. Factory Method
-O padrão Factory Method define uma interface para criar objetos, mas delega a criação para subclasses ou classes específicas.
 
 ✅ Pontos Fortes Factory Method:
 
